@@ -6,15 +6,13 @@
   </li>
   
   <li>
-    <form class="add-list css-form" ng-show="listsCtrl.addListFormVisible" novalidate>
-      
+    <form class="add-list css-form" ng-show="listsCtrl.addListFormVisible" novalidate>    
       <input  type="text"   name="name"         placeholder="Name: "        ng-model="listsCtrl.addListName" required />
       <input  type="text"   name="description"  placeholder="Description: " ng-model="listsCtrl.addListDescription" />
       <span class="error-message" ng-show="listsCtrl.postError" ng-bind="listsCtrl.postNewListError"></span>
-    
     </form>
-    <button type="button" name="submit" ng-show="listsCtrl.addListFormVisible" ng-click="listsCtrl.addListFormHandler()">Save</button>
-    <button type="button" name="button" ng-bind="listsCtrl.addButtonText" ng-click="listsCtrl.toggleAddListFormVisible()"></button>
+    <button type="button" name="submit-button" ng-show="listsCtrl.addListFormVisible" ng-click="listsCtrl.addListFormHandler()">Save</button>
+    <button type="button" name="add-button" ng-bind="listsCtrl.addButtonText" ng-click="listsCtrl.toggleAddListFormVisible()"></button>
   </li>
   
 </ul>

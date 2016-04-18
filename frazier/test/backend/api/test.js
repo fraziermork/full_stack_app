@@ -9,10 +9,10 @@ const request = chai.request;
 const expect = chai.expect;
 
 // const User = require(__dirname + '/../models/users.js');
-const List = require(__dirname + '/../models/lists.js');
-const Item = require(__dirname + '/../models/items.js');
+const List = require(__dirname + '/../../../models/lists.js');
+const Item = require(__dirname + '/../../../models/items.js');
 
-require(__dirname + '/../server.js');
+require(__dirname + '/../../../server.js');
 
 
 function resetDatabase(done){ 

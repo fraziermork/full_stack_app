@@ -25,7 +25,12 @@ let paths = {
 };
 
 
+
+
+
+//__________________________________________________________________
 //RUN ESLINT
+//__________________________________________________________________
 gulp.task('eslint', () => {
   gulp.src(paths.frontend.concat(paths.backend))
   .pipe(eslint())
@@ -35,7 +40,11 @@ gulp.task('eslint', () => {
 
 
 
+
+
+//__________________________________________________________________
 //RUN TESTS
+//__________________________________________________________________
 //TODO: write E2E tests using protractor and selenium
 //TODO: write unit tests using karma, jasmine, angular-mocks
 gulp.task('test:api', () => { //TESTS THE BACKEND
@@ -59,17 +68,21 @@ gulp.task('test', ['test:api'], () => { //'test:unit', 'test:e2e'
 
 
 
+
+
+//__________________________________________________________________
 //REBUILD TEST FILES FOR E2E AND UNIT TESTS
+//__________________________________________________________________
 gulp.task('build:clear-test', () => {
   return del([__dirname + '/test/frontend/bundles/*']);
 });
 gulp.task('build:unit-tests', () => {
-  return gulp.src()
+  return gulp.src(__dirname + '/test/frontend/unit/*_spec.js')
     .pipe(webpack({ output: { filename: 'unit_bundle.js' } }))
     .pipe(gulp.dest(__dirname + '/test/bundles'));
 });
 gulp.task('build:e2e-tests', () => {
-  return gulp.src()
+  return gulp.src(__dirname + '/test/frontend/e2e/*_spec.js')
     .pipe(webpack({ output: { filename: 'e2e_bundle.js' } }))
     .pipe(gulp.dest(__dirname + '/test/bundles'));
 });
@@ -84,7 +97,10 @@ gulp.task('rebuild:tests', ['build:clear-test', 'build:unit-tests', 'build:e2e-t
 
 
 
+
+//__________________________________________________________________
 //REBUILD APP FRONTEND ON FILE CHANGES
+//__________________________________________________________________
 gulp.task('build:clear-app', () => { //empty the build directory
   return del([__dirname + '/build/*']);
 });
@@ -109,163 +125,3 @@ gulp.task('rebuild:app', ['build:clear-app', 'build:html', 'build:css', 'build:j
 gulp.task('watch-app', () => { //watches for file changes and rebuilds the build directory
   gulp.watch(paths.frontend.concat(paths.html), ['eslint', 'rebuild:app']);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// require(__dirname + '/server.js');
-// let Item   = require(__dirname + '/models/items.js');
-// let List   = require(__dirname + '/models/lists.js');
-// const exec    = require('child_process').exec;
-// const exec    = require('gulp-exec');
-// let testItemIds = [];
-// let testListId = null;
-// let testItems = [
-//   {
-//     name: 'Finish Portfolio',
-//     description: 'Finish updating portfolio so I can apply to jobs.'
-//   }, 
-//   {
-//     name: 'Do laundry',
-//     description: 'Do laundry so that you aren\'t disgusting.'
-//   }, 
-//   {
-//     name: 'Do homework',
-//     description: 'Do homework so that you pass the class.'
-//   }, 
-//   {
-//     name: 'Clean room',
-//     description: 'Clean room so that there is more room for activities.'
-//   }
-// ];
-// let testList = {
-//   name: 'todo list',
-//   description: 'List of todo items for the near future.',
-//   items: testItemIds
-// };
-// gulp.task('empty-db', () => {
-//   List.find({}).remove().exec()
-//   .then(() => {
-//     return Item.find({}).remove().exec();
-//   })
-//   .then(() => {
-//     console.log('Database emptied.');
-//   });
-// });
-// gulp.task('seed-db-items', () => {
-//   testItems.forEach((testItem) => {
-//     let newItem = new Item(testItem);
-//     newItem.save((err, savedItem) => {
-//       if(err){
-//         console.log('Error saving testItem: ', err);
-//       }
-//       testItemIds.push(savedItem._id.toString());
-//     });
-//   });
-// });
-// gulp.task('seed-db-lists', ['seed-db-items'], () => {
-//   console.log(testItemIds);
-//   let newList = new List(testList);
-//   newList.save((err, savedList) => {
-//     console.log(err);
-//     console.log('Done seeding lists and items');
-//   });
-// });
-// gulp.task('reset-db', ['empty-db', 'seed-db-lists'], () => {
-//   console.log('Database reset.');
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// gulp.task('api-start', () => {
-//   
-//   
-// });
-
-//http://stackoverflow.com/questions/28665395/using-gulp-to-manage-opening-and-closing-mongodb
-// gulp.task('init-mongo', () => {
-//   exec('mongod -dbpath=./db/ --smallfiles');
-//   // runCommand('mongod --dbpath ./db/');
-// });
-// gulp.task('end-mongo', () => {
-//   runCommand('mongo --eval"use admin;" db.shutdownServer();');
-// });
-// function runCommand(command){
-//   return function(cb){
-//     exec(command, function(err, stdout, stderr) {
-//       console.log(stdout);
-//       console.log(stderr);
-//       cb(err);
-//     });
-//   };
-// }

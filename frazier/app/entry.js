@@ -1,11 +1,11 @@
 'use strict';
 
-// require('!style!css!./css/style.css');
+
 require('angular');
-// require(__dirname + '/controllers/items.js');
-// require(__dirname + '/controllers/lists.js');
-// require(__dirname + '/directives/all-lists.js');
-require(__dirname + '/controllers/app.js');
-// require(__dirname + '/directives/edit-list.js');
-// require(__dirname + '/directives/index.js');
-// require(__dirname + '/directives/item.js');
+require(__dirname + '/one-item/controller.js');
+require(__dirname + '/one-item/directive.js');
+require(__dirname + '/one-list/controller.js');
+require(__dirname + '/one-list/directive.js');
+require(__dirname + '/all-lists/controller.js');
+require(__dirname + '/all-lists/directive.js');
+require(__dirname + '/main/controller.js');

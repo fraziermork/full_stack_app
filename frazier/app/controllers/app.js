@@ -1,5 +1,5 @@
 'use strict';
-
+/*global angular */
 const angular = require('angular');
 
 //TODO: refactor to be more in line with John Papa angular guidelines

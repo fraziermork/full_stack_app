@@ -1,4 +1,5 @@
 node_modules
 db/*
 build/*
-test/frontend/bundles/*
+test/bundles/*
+npm-debug.log

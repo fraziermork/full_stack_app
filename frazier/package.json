@@ -7,18 +7,19 @@
     "test": "test"
   },
   "scripts": {
-    "initialize": "mongod -dbpath=./db/ --smallfiles",
-    "watch-app": "gulp watch-app",
-    "api-start": "nodemon server.js", 
-    "api-test": "gulp test:api",
-    "unit-test": "gulp rebuild:tests; karma start",
-    "e2e-test": "gulp rebuild:tests; protractor protractor-config.js"
+    "start:db": "mongod -dbpath=./db/ --smallfiles;",
+    "watch:app": "gulp watch-app;",
+    "start:all": "nodemon server.js;", 
+    "test:api": "gulp test:api",
+    "test:unit": "gulp rebuild:tests; karma start;",
+    "test:e2e": "gulp rebuild:tests; protractor protractor-config.js;",
+    "start:selenium": "webdriver-manager start"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fraziermork/rest_api.git"
   },
-  "author": "Frazier Mork <fraziermork@gmail.com> (https://frazier-fibonacci.herokuapp.com/)",
+  "author": "Frazier Mork <fraziermork@gmail.com> (https://fraziermork.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fraziermork/rest_api/issues"
