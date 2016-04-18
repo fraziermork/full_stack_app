@@ -18,7 +18,7 @@ const del     = require('del');
 
 //https://gist.github.com/justinmc/9149719
 let paths = {  
-  'frontend': [__dirname + '/app/*.js', __dirname + '/app/controllers/*.js', __dirname + '/app/services/*.js', __dirname + '/app/directives/*.js'],
+  'frontend': [__dirname + '/app/*.js', __dirname + '/app/**/*.js'],
   'backend': [__dirname + '/server.js', __dirname + '/lib/*.js', __dirname + '/test/*.js', __dirname + '/routes/*.js', __dirname + '/models/*.js'],
   'html': [__dirname + '/app/views/*.html'],
   'css': [__dirname + '/app/css/*.css']

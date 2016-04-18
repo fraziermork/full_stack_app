@@ -9,7 +9,7 @@
   
   <body>
     
-    <main data-ng-init="initialize()" data-ng-controller="MainController as ctrl">
+    <main data-ng-init="ctrl.initialize()" data-ng-controller="MainController as ctrl">
       
       Test: {{ 1 + 1 }}
       <p data-ng-bind="ctrl.test"></p>

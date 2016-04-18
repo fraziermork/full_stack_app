@@ -8,12 +8,12 @@
   },
   "scripts": {
     "start:db": "mongod -dbpath=./db/ --smallfiles;",
+    "start:servers": "nodemon server.js;", 
+    "start:selenium": "webdriver-manager start",
     "watch:app": "gulp watch-app;",
-    "start:all": "nodemon server.js;", 
     "test:api": "gulp test:api",
     "test:unit": "gulp rebuild:tests; karma start;",
-    "test:e2e": "gulp rebuild:tests; protractor protractor-config.js;",
-    "start:selenium": "webdriver-manager start"
+    "test:e2e": "gulp rebuild:tests; protractor protractor-config.js;"
   },
   "repository": {
     "type": "git",
@@ -43,7 +43,6 @@
     "karma-jasmine": "^0.3.8",
     "nodemon": "^1.9.1",
     "protractor": "^3.2.2",
-    "superagent": "^1.8.3",
     "webpack": "^1.12.14",
     "webpack-stream": "^3.1.0"
   },

@@ -40,15 +40,15 @@
       $http.post('http://localhost:3000/lists', postObj)
         .then((result) => {
           vm.postError = null;
-          $scope.initialize(function(err){
+          $scope.ctrl.initialize(function(err){ 
             if (err) {
               $log.log('err was ', err);
               vm.postError = 'Error creating list.';
             } else {
               vm.addListFormVisible = false;
               $log.log('result was ', result);
-              $scope.listIdForEditSection = result.data._id.toString();
-              $scope.toggleTab($scope.listIdForEditSection);
+              $scope.ctrl.listIdForEditSection = result.data._id.toString();
+              $scope.ctrl.toggleTab($scope.ctrl.listIdForEditSection);
             }
           });
         }, function(err) {
