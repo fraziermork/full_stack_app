@@ -91,7 +91,9 @@ gulp.task('rebuild:tests', ['build:clear-test', 'build:unit-tests', 'build:e2e-t
   console.log('BUILD TESTS');
   console.log('__________________________________________________________________');
 });
-
+gulp.task('watch:tests', () => {
+  gulp.watch( [__dirname + '/test/frontend/e2e/*_spec.js', __dirname + '/test/frontend/unit/*_spec.js'], ['rebuild:tests']);
+});
 
 
 
@@ -123,5 +125,5 @@ gulp.task('rebuild:app', ['build:clear-app', 'build:html', 'build:css', 'build:j
   console.log('__________________________________________________________________');
 });
 gulp.task('watch-app', () => { //watches for file changes and rebuilds the build directory
-  gulp.watch(paths.frontend.concat(paths.html), ['eslint', 'rebuild:app']);
+  gulp.watch(paths.frontend.concat(paths.html), ['rebuild:app']);
 });

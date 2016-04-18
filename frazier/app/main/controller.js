@@ -28,15 +28,14 @@
     function toggleTab(listId){
       if(vm.sectionName === 'allLists' && listId){
         $scope.listIdForEditSection = listId;
-        vm.sectionName = 'editList';
-        vm.updateSection();
+        vm.updateSection('editList');
       } else {
-        vm.sectionName = 'allLists';
-        vm.updateSection();
+        vm.updateSection('allLists');
       }
     }
     
-    function updateSection(){
+    function updateSection(sectionName){
+      vm.sectionName = sectionName;
       vm.section = vm.sections[vm.sectionName].source;
     }
     
